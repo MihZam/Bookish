@@ -1,0 +1,16 @@
+CREATE TABLE Books (BookID int PRIMARY KEY NOT NULL IDENTITY(1,1), 
+					BookName varchar(255) NOT NULL,
+					Author varchar(255) NOT NULL,
+					ISBN char(13) NOT NULL)
+TRUNCATE TABLE Books
+
+CREATE TABLE Users (UserID int PRIMARY KEY NOT NULL IDENTITY(1,1),
+					Username varchar(255) NOT NULL)
+TRUNCATE TABLE Users
+
+CREATE TABLE Copies (CopyID int PRIMARY KEY NOT NULL IDENTITY(1,1),
+					 BookID int FOREIGN KEY REFERENCES Books(BookID),
+					 UserID int FOREIGN KEY REFERENCES Users(UserID))
+TRUNCATE TABLE Copies
+
+
